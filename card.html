@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <!-- Example card, data should be rendered dynamically in a real app -->
+    <div class="card w-80 bg-white shadow-lg border border-gray-200 rounded-xl p-5">
+        <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center justify-between flex-row-reverse w-full">
+                <!-- Priority badge -->
+                <span class="badge badge-lg font-semibold text-[#EF4444]" style="background-color: #FEECEC;">HIGH</span>
+                <!-- Status icon -->
+                <img src="assets/Open-Status.png" alt="" srcset="">
+            </div>
+
+        </div>
+        <h3 class="font-bold text-lg mb-1">Fix navigation menu on mobile devices</h3>
+        <p class="text-gray-600 text-sm mb-3">The navigation menu doesn't collapse properly on mobile devices. Need to
+            fix the responsive behavior.</p>
+        <div class="flex flex-wrap gap-2 mb-3" id="labels">
+            <!-- Labels -->
+            <span class="badge badge-error text-[#EF4444] bg-[#FEECEC]">BUG</span>
+            <span class="badge badge-warning text-[#D97706] bg-[#FFF8DB]">HELP WANTED</span>
+        </div>
+        <div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+            <span>by <span class="font-semibold">john_doe</span></span>
+            <span>1/15/2024</span>
+        </div>
+        <div class="flex items-center gap-2 mt-2">
+            <span class="text-xs">Assignee:</span>
+            <span class="font-semibold text-gray-700">jane_smith</span>
+        </div>
+    </div>
+    <!--
+        To render dynamically:
+        - Change badge color and text for priority (high: red, medium: yellow, low: purple)
+        - Status icon color (open: green, closed: gray)
+        - Label badge color (bug: error/red, enhancement: success/green, help wanted: warning/yellow, documentation: info/blue, good first issue: info/blue)
+        - Show/hide assignee if empty
+    -->
+</body>
+
+</html>
