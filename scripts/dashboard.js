@@ -12,7 +12,7 @@ function renderCards(cardsArray) {
         cardHTML.classList.add('card', 'w-full', 'bg-base-100', 'shadow-md');
         cardHTML.style.borderTop = card.status && card.status.toLowerCase() === 'closed' ? '4px solid #A78BFA' : '4px solid #22C55E';
         cardHTML.innerHTML = `
-            <div class="card-body">
+            <div class="card-body" id="card-${card.id}">
                 <div class="flex items-center justify-between mb-2">
                     <div class="flex items-center justify-between w-full">
                         <!-- Status Icon Left -->
@@ -32,7 +32,7 @@ function renderCards(cardsArray) {
                     </div>
                 </div>
                 <h3 class="font-bold text-lg mb-1">${card.title}</h3>
-                <p class="text-gray-600 text-sm mb-3">${card.description}</p>
+                    <p class="text-gray-600 text-sm mb-3" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${card.description}</p>
                 <div class="flex flex-wrap gap-2 mb-3" id="labels">
                     ${card.labels.map(label => {
                 if (label.toLowerCase() === 'bug') {
@@ -49,6 +49,8 @@ function renderCards(cardsArray) {
             </div>
         `;
         cardsSection.appendChild(cardHTML);
+        cardHTML.style.cursor = 'pointer';
+        cardHTML.addEventListener('click', () => openModal(card));
     });
 }
 
@@ -62,21 +64,33 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Error fetching issues:', error);
         });
+
+    document.getElementById('allbtn').classList.add('bg-blue-500', 'text-white');
+
 });
 
 
 
 document.getElementById('openbtn').addEventListener('click', () => {
     renderCards(allIssues.filter(card => card.status && card.status.toLowerCase() === 'open'));
+    document.getElementById('openbtn').classList.add('bg-blue-500', 'text-white');
+    document.getElementById('closedbtn').classList.remove('bg-blue-500', 'text-white');
+    document.getElementById('allbtn').classList.remove('bg-blue-500', 'text-white');
 });
 
 
 document.getElementById('closedbtn').addEventListener('click', () => {
     renderCards(allIssues.filter(card => card.status && card.status.toLowerCase() === 'closed'));
+    document.getElementById('closedbtn').classList.add('bg-blue-500', 'text-white');
+    document.getElementById('openbtn').classList.remove('bg-blue-500', 'text-white');
+    document.getElementById('allbtn').classList.remove('bg-blue-500', 'text-white');
 });
 
 document.getElementById('allbtn').addEventListener('click', () => {
     renderCards(allIssues);
+    document.getElementById('allbtn').classList.add('bg-blue-500', 'text-white');
+    document.getElementById('openbtn').classList.remove('bg-blue-500', 'text-white');
+    document.getElementById('closedbtn').classList.remove('bg-blue-500', 'text-white');
 });
 
 
