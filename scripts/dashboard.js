@@ -55,13 +55,16 @@ function renderCards(cardsArray) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    showSpinner();
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
         .then(response => response.json())
         .then(data => {
             allIssues = data.data;
+            hideSpinner();
             renderCards(allIssues);
         })
         .catch(error => {
+            hideSpinner();
             console.error('Error fetching issues:', error);
         });
 
