@@ -17,7 +17,7 @@
                 <span class="font-bold text-xl">GitHub Issues Tracker</span>
             </div>
             <div class="flex items-center gap-4">
-                <input type="text" placeholder="Search issues..." class="input input-bordered w-64" />
+                <input type="text" placeholder="Search issues..." class="input input-bordered w-64" id="issue-search" />
                 <button class="btn btn-primary">+ New Issue</button>
             </div>
         </div>
@@ -25,8 +25,7 @@
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto mt-8">
-        <!-- Filter Tabs -->
-        <div class="bg-white rounded-xl shadow p-4 mb-6 border border-blue-200">
+         <div class="bg-white rounded-xl shadow p-4 mb-6 border border-blue-200">
             <div class="flex gap-2">
                 <button class="btn btn-sm btn-outline" id="allbtn">All</button>
                 <button class="btn btn-sm btn-outline" id="openbtn">Open</button>
@@ -60,13 +59,14 @@
     </main>
 
 
-    <!-- Issue Detail Modal -->
+    <!--  Modal -->
     <dialog id="issue-modal" class="modal">
         <div class="modal-box w-11/12 max-w-lg rounded-2xl p-6">
-            <!-- Title -->
-            <h3 id="modal-title" class="font-bold text-lg mb-3"></h3>
-            <!-- Status row -->
-            <div class="flex items-center gap-2 mb-3 text-sm text-gray-500">
+
+             <h3 id="modal-title" class="font-bold text-lg mb-3"></h3>
+
+
+             <div class="flex items-center gap-2 mb-3 text-sm text-gray-500">
                 <span id="modal-status-badge"
                     class="badge badge-lg font-semibold px-3 py-1 rounded-full text-xs"></span>
                 <span>•</span>
@@ -74,12 +74,15 @@
                 <span>•</span>
                 <span id="modal-created"></span>
             </div>
-            <!-- Labels -->
-            <div id="modal-labels" class="flex flex-wrap gap-2 mb-4"></div>
-            <!-- Description -->
-            <p id="modal-description" class="text-gray-600 text-sm mb-5"></p>
-            <!-- Assignee / Priority box -->
-            <div class="bg-gray-100 rounded-xl p-4 flex items-center justify-between mb-5">
+
+
+             <div id="modal-labels" class="flex flex-wrap gap-2 mb-4"></div>
+
+
+             <p id="modal-description" class="text-gray-600 text-sm mb-5"></p>
+
+
+             <div class="bg-gray-100 rounded-xl p-4 flex items-center justify-between mb-5">
                 <div>
                     <p class="text-xs text-gray-500 mb-1">Assignee:</p>
                     <p id="modal-assignee" class="font-bold text-gray-800"></p>
@@ -90,8 +93,10 @@
                         class="badge badge-lg font-semibold px-3 py-1 rounded-full text-xs"></span>
                 </div>
             </div>
-            <!-- Close button -->
-            <div class="flex justify-end">
+
+
+
+             <div class="flex justify-end">
                 <form method="dialog">
                     <button class="btn btn-primary px-6">Close</button>
                 </form>
@@ -102,6 +107,7 @@
 
     <script src="scripts/dashboard.js"></script>
     <script src="scripts/modal.js"></script>
+    <script src="scripts/search.js"></script>
 </body>
 
 </html>
