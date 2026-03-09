@@ -3,6 +3,8 @@
 let allIssues = [];
 
 function renderCards(cardsArray) {
+    let totalIssues = cardsArray.length;
+    document.getElementById('total-issue-number').textContent = totalIssues;
     const cardsSection = document.getElementById('cards-section');
     cardsSection.innerHTML = '';
     cardsArray.forEach((card) => {
